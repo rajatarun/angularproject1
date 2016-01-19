@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head class="container">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>TARUNBLOG</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/myapp.css">
+   
+   <!-- font controller start 
+   <div ng-controller="FontController as fc">
+    <link ng-href={{fc.product}} rel='stylesheet' type='text/css'>
+</div>
+<div ng-controller="BodyFontController as fc">
+    <link ng-href={{fc.product.fh}} rel='stylesheet' type='text/css'>
+
+    <link ng-href={{fc.product.ff}} rel='stylesheet' type='text/css'>
+</div>
+font controller end -->
+<div class = "col-md-12 heading contact">
+   
+   <h1 class="mainheading"></h1>
+   
+</div>
+</head>
+<body ng-app="FoodApp"  ng-controller="BodyController as bc">
+<div class="row">
+<div class="col-md-1">
+
+</div>
+<div class="col-md-10">
+	<h3>Name: {{data.report.food.name}}</h3>
+	<h3>Category: {{data.report.food.fg}}</h3>
+	<div class="table-responsive">
+	<table class="table">
+		<tr>
+			<th>nutrient_id</th>
+			<th>Name</th>
+			<th>Group</th>
+			<th>Value(units)</th>
+			<th>Measures</th>
+		</tr>
+		
+			<tr ng-repeat="item in data.report.food.nutrients">
+				<td><h4>{{item.nutrient_id}}</h4></td>
+				<td><h4>{{item.name}}</h4></td>
+				<td><h4>{{item.group}}</h4></td>
+				<td><h4>{{item.value}}{{item.unit}}</h4></td>
+				<td><div class="table-responsive">
+				<table class="table">
+					<tr>
+						<td><h4>label: {{item.measures[0].label}}</h4></td>
+					</tr>
+					<tr>
+						<td><h4>eqv: {{item.measures[0].eqv}}</h4></td>
+					</tr>
+					<tr>
+						<td><h4>qty: {{item.measures[0].qty}}</h4></td>
+					</tr>
+					<tr>
+						<td><h4>value: {{item.measures[0].value}}</h4></td>
+					</tr>
+				</table>	
+				</div></td>
+			</tr>	
+		
+	</table>
+	</div>
+
+</div>
+
+</div>	
+<script type="text/javascript" src="scripts/angular.min.js"></script>
+<script type="text/javascript" src="scripts/FoodApp.js"></script>
+</body>
+
+
+</html>
