@@ -9,9 +9,16 @@
     	$http.get("http://api.nal.usda.gov/ndb/list?format=json&lt=f&sort=n&api_key=DEMO_KEY").success(response);
     		},
     		getData1 :function(res){
-    			return $http.get("http://api.nal.usda.gov/ndb/reports/?ndbno="+res+''+"&type=f&format=json&api_key=DEMO_KEY").then(function(response){
+    			var s = parseInt(res);
+    			if(s<10000){
+    			return $http.get("http://api.nal.usda.gov/ndb/reports/?ndbno=0"+res+''+"&type=f&format=json&api_key=DEMO_KEY").then(function(response){
     				return response.data;
-    			});	
+    			});	}
+    			else{
+    				return $http.get("http://api.nal.usda.gov/ndb/reports/?ndbno="+res+''+"&type=f&format=json&api_key=DEMO_KEY").then(function(response){
+    				return response.data;
+    				});
+    			}
     		}
     	}
    		
