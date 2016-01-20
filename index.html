@@ -37,10 +37,10 @@ font controller end -->
 						<th>{{data.list.start}}</th>
 					</tr>
 
-					<tr ng-repeat="item in data.list.item" ng-init="ndbno={{item.id}}">
+					<tr ng-repeat="item in data.list.item" ng-init="ndbno=0">
 						<td><a href="#"><h4>{{item.id}}</h4></a></td>
 						<td><a href="#"><h4>{{item.name}}</h4></a></td>
-						<td><button class="btn btn-default" data-toggle="modal" data-target="#foodDetails" ng-click="call(item.id)">Select</button></td>
+						<td><input type="radio" class="form-control" data-toggle="modal" data-target="#foodDetails" ng-model="id" ng-value ="{{item.id}}" ng-change="call(id);" name="check"></td>
 					</tr>	
 				</table>
 			</div>
@@ -48,7 +48,7 @@ font controller end -->
 		</div>
 
 	</div>	
-	<div class="modal" id="foodDetails" ng-controller="FoodBodyController as bc">
+	<div class="modal" id="foodDetails">
 		<div class="modal-content">
 			<div class="modal-header">
 
@@ -59,8 +59,8 @@ font controller end -->
 
 					</div>
 					<div class="col-md-10">
-						<h3>Name: {{data.report.food.name}}</h3>
-						<h3>Category: {{data.report.food.fg}}</h3>
+						<h3>Name: {{data1.report.food.name}}</h3>
+						<h3>Category: {{data1.report.food.fg}}</h3>
 						<div class="table-responsive">
 							<table class="table">
 								<tr>
@@ -71,7 +71,7 @@ font controller end -->
 									<th>Measures</th>
 								</tr>
 
-								<tr ng-repeat="item in data.report.food.nutrients">
+								<tr ng-repeat="item in data1.report.food.nutrients">
 									<td><h4>{{item.nutrient_id}}</h4></td>
 									<td><h4>{{item.name}}</h4></td>
 									<td><h4>{{item.group}}</h4></td>
@@ -107,6 +107,8 @@ font controller end -->
 	</div>
 
 	<script type="text/javascript" src="scripts/angular.min.js"></script>
+	<script type="text/javascript" src="scripts/angular-route.min.js"></script>
+	<script type="text/javascript" src="scripts/angular-resource.min.js"></script>
 	<script type="text/javascript" src="scripts/FoodApp.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
